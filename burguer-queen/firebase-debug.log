@@ -1,0 +1,86 @@
+[debug] [2019-12-11T21:41:21.108Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T21:41:21.138Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login-ci
+[debug] [2019-12-11T21:41:21.138Z] CLI Version:   7.9.0
+[debug] [2019-12-11T21:41:21.138Z] Platform:      win32
+[debug] [2019-12-11T21:41:21.138Z] Node Version:  v12.13.1
+[debug] [2019-12-11T21:41:21.244Z] Time:          Wed Dec 11 2019 18:41:21 GMT-0300 (GMT-03:00)
+[debug] [2019-12-11T21:41:21.244Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T21:41:21.244Z] 
+[error] Error: [object Object] is not a Firebase command
+[debug] [2019-12-11T21:41:21.331Z] TypeError: str.toLowerCase is not a function
+    at didYouMean (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\didyoumean\didYouMean-1.2.1.js:147:48)
+    at suggestCommands (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js:28:22)
+    at Command.<anonymous> (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\index.js:57:14)
+    at Command.listener (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\commander\index.js:360:8)
+    at Command.emit (events.js:210:5)
+    at Command.EventEmitter.emit (domain.js:475:20)
+    at Command.parseArgs (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\commander\index.js:801:12)
+    at Command.parse (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\commander\index.js:563:21)
+    at Object.<anonymous> (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js:98:22)
+    at Module._compile (internal/modules/cjs/loader.js:959:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+    at Module.load (internal/modules/cjs/loader.js:815:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:1047:10)
+    at internal/main/run_main_module.js:17:11
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-12-11T21:41:57.632Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T21:41:57.634Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-12-11T21:41:57.635Z] CLI Version:   7.9.0
+[debug] [2019-12-11T21:41:57.635Z] Platform:      win32
+[debug] [2019-12-11T21:41:57.635Z] Node Version:  v12.13.1
+[debug] [2019-12-11T21:41:57.636Z] Time:          Wed Dec 11 2019 18:41:57 GMT-0300 (GMT-03:00)
+[debug] [2019-12-11T21:41:57.636Z] ----------------------------------------------------------------------
+[debug] [2019-12-11T21:41:57.636Z] 
+[debug] [2019-12-11T21:41:57.681Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-11T21:41:57.682Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\laboratoria\SAP003-burger-queen\burguer-queen
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2019-12-11T21:43:18.695Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-11T21:43:18.695Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-11T21:43:18.886Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-11T21:43:18.937Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2019-12-11T21:43:19.935Z] <<< HTTP RESPONSE 400
+[debug] [2019-12-11T21:43:19.936Z] <<< HTTP RESPONSE BODY
+[debug] [2019-12-11T21:43:19.945Z] HTTP Error: 400, Request contains an invalid argument.
+[debug] [2019-12-11T21:43:20.107Z] FirebaseError: HTTP Error: 400, Request contains an invalid argument.
+    at module.exports (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (C:\Users\linel\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:299:28)
+    at IncomingMessage.emit (events.js:215:7)
+    at IncomingMessage.EventEmitter.emit (domain.js:475:20)
+    at endReadableNT (_stream_readable.js:1184:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Failed to create Google Cloud project. See firebase-debug.log for more info.
