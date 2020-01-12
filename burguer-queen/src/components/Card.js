@@ -1,19 +1,6 @@
 import React from 'react';
 import {StyleSheet, css} from 'aphrodite';
 
-const styles = StyleSheet.create({
-   card:{
-    backgroundColor: '#ffd596',
-    borderRadius: '8px',
-    boxShadow: '15px',
-    textAlign: 'center',
-    padding: '0',
-    margin: '1%',
-    marginLeft: '40%',
-    marginRight: '40%',
-   },
-});  
-
 function Card(props){
     return(
         <div className={css(styles.card)} onClick={props.handleClick}>
@@ -25,7 +12,21 @@ function Card(props){
             <p> R${props.price}</p>
             <p>{props.client}</p>
             <p>{props.total}</p>
+            <p>{props.img}</p>
        </div>
     )};
+
+    const styles = StyleSheet.create({
+        card:{
+         backgroundColor: '#ffffff',
+         boxShadow: '0 0 0.5em lightgray',
+         borderRadius: '8px',
+         border: '4px',
+         textAlign: 'center',
+         padding: '10px',
+         margin: '1vh',
+         flexWrap: 'wrap'
+        },
+     });  
 
     export default Card;

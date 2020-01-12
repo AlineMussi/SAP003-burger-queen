@@ -1,20 +1,25 @@
 import React from 'react';
 import Button from './Button';
-import Card from './Card';
+//import Card from './Card';
 
 
 function Request(props){
+  const sendRequest = props.sendRequest;
+  const deleteItem = props.deleteItem;
 
  return(
         <>
       <div>
-         <Card total={props.total}/>
+         <p>R$ {props.total} ,00</p>
            <Button
-              title={"Enviar pedido"}
-              onClick={() => props.sendRequest} />
+              title={"Enviar"}
+              handleClick={(e) => {
+                props.sendRequest(sendRequest);
+                e.preventDefault();
+              }}/>
             <Button
-              title={"Deletar pedido"}
-              onClick={() => props.deleteItem} />
+              title={"Deletar"}
+              handleClick={(e) => props.deleteItem(deleteItem)} />
          
        </div>
        </>
