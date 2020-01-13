@@ -14,6 +14,7 @@ function Title(props){
     const styles = StyleSheet.create({
         title:{
             fontFamily: ['Bad script', 'cursive'],
+            color: 'brown'
         },
        });
 

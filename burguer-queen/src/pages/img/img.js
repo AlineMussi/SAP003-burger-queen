@@ -1,14 +1,21 @@
 import React from 'react';
-import logo from '../../pages/img/logo.jpg';
+import burger from '../../pages/img/burger.png/';
+import {StyleSheet, css} from 'aphrodite';
 
 const Img = () => {
 
     return(
         <div>
-            <img src={logo} alt='logo'/>
+            <img className={css(styles.img)} src={burger} alt='burger'/>
         </div>
 
     )
 }
 
-export default Img;
+const styles = StyleSheet.create({
+img:{
+    width: '50vw',
+},
+})
+
+//export default Img;

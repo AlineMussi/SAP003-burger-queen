@@ -60,14 +60,13 @@ const total = itens.reduce((acumulador, item) => {
 
 
 
-const removeItem = (product, item) => {
+const removeItem = (product) => {
   const findIndex = itens.findIndex(item => item.name === product.name)
-  const index = (itens.indexOf(item))
   if (itens[findIndex].qtd > 1) {
     itens[findIndex].qtd--
       setItens([...itens])
   } else {
-    itens.splice(index, 1)
+    itens.splice(findIndex, 1)
     setItens([...itens])
   }
 }
@@ -131,6 +130,33 @@ const addExtraToItem = (product, extra) => {
 }
 
 const menuExtras = [{name: ' ovo ', icon: '🧀'}, {name: ' queijo ', icon: '🍳'}];
+const menuOption = [{name: ' veggie ', icon: '🥬'}, {name: ' frango ', icon: '🐔'}];
+
+const addOptionToItem = (product, option) => {
+  const newOption = itens.map((item) => {
+    if (item.name === product.name) {
+      let newOption = []
+      if (item.option === undefined || item.options.length === 0) {
+        newOption = [option]
+        } else {
+        newOption = item.options;
+        const index = newOption.indexOf(option);
+        if (index === -1) {
+          newOption = [...newOption, option]
+        } else {
+          newOption.splice(index, 1)
+        }
+      }
+      return {
+        ...item,
+        options: newOption
+      };
+    } else {
+      return item
+    }
+  });
+  setItens(newOption)
+}
 
 return(
     <>
@@ -167,7 +193,7 @@ return(
                 <section className={css(styles.menuCategory)} > 
                     <MenuCard state={menu2}  title={'+'} function={addItens} />
                 </section>} 
-      <div>
+      <div className={css(styles.divTitleRequest)}>
           <Title title={'Pedido'}/>          
       <hr/>      
       <div>
@@ -180,20 +206,12 @@ return(
                                 key={index}
                                 qtd={item.qtd}
                                 price= {item.price * item.qtd} 
-                                name={item.name}/>
+                                item={item}
+                                menuExtras={menuExtras}
+                                menuOption={menuOption}
+                                addExtraToItem={addExtraToItem}
+                                addOptionToItem={addOptionToItem}/>
                              <Button title={'-'} handleClick={() => removeItem(item)}/>  
-                             {(item.name === "Hamburguer Simples")
-                              ? menuExtras.map((extra, index) => {
-                                const isButtonSelected = item.extras && item.extras.includes(extra.name + '');
-                                return <Button
-                                className={isButtonSelected ? styles.selectedButton : ""}
-                                key={index} 
-                                type='button' 
-                                title={extra.icon} 
-                                handleClick={() => addExtraToItem(item, extra.name)}/>
-                              })
-                              : null
-                             }         
                          </div> )}
               </section>
       </div>
@@ -205,7 +223,7 @@ return(
             sendRequest={sendRequest}
             deleteItem={deleteItem}
             />
-            <Link to='/cozinha'> <Button title="cozinha"/> </Link>
+            <Link to='/cozinha'> <Button title="👨‍🍳"/> </Link>
           </section>
       </div>
     </main>
@@ -216,7 +234,7 @@ return(
 const styles = StyleSheet.create({
 
 header:{
-    textAlign: 'center',
+  textAlign: 'center',
   },
 
 main:{
@@ -228,10 +246,8 @@ main:{
 
 secInput:{
   flexWrap: 'wrap',
-  padding: '1vw',
   justifyContent: 'center',
   fontFamily: 'Helvetica',
-  marginBottom: '2vw',
 },
 
 menuChoice: {
@@ -244,20 +260,19 @@ menuCategory: {
   display: 'flex',
   flexDirection: 'wrap',
   fontFamily: 'Helvetica',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
 },
 
 secList: {
   display: 'flex',
-  width: '10vw',
-  marginBottom:'1vw',
-  justifyContent: 'center',
+  flexDirection: 'nowwrap',
+  fontFamily: 'Helvetica',
 },
 
 divList:{
   alignContent: 'center',
   flexWrap: 'wrap',
-  padding: '1vw',
-  justifyContent: 'center',
 },
 
 listButton: {
@@ -267,6 +282,10 @@ listButton: {
 
 selectedButton: {
   backgroundColor: "#ffff7d"
+},
+
+divTitleRequest:{
+  textAlign: 'center',
 },
 
 request: {

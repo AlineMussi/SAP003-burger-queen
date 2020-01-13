@@ -25,7 +25,9 @@ function Card(props){
          textAlign: 'center',
          padding: '10px',
          margin: '1vh',
-         flexWrap: 'wrap'
+         flexWrap: 'wrap',
+         width: '90px',
+         height: '100px',
         },
      });  
 

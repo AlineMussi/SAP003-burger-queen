@@ -3,9 +3,9 @@ import {StyleSheet, css} from 'aphrodite';
 import firebase from '../utils/firebaseUtil';
 import Title from '../components/Title';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-function Kitchen() {
+function Delivery() {
     const [itens, setItens] = useState([]);
     
   
@@ -27,7 +27,7 @@ useEffect(() => {
   );
 
 
-  const init = (item) => {
+  const finish = (item) => {
       
       firebase.firestore()
       .collection('command')
@@ -39,13 +39,13 @@ useEffect(() => {
       .then(() => {
         setItens([...itens])
         window.location.reload();
-        alert('Prato finalizado')
+        alert('Pronto para servir')
     })
 }
 
 return (
     <main  className={css(styles.main)}>
-      <Title title={'Pedidos'} />
+      <Title title={'Pedidos prontos'} />
     <hr/>
     
     <section className={css(styles.inProgress)}>
@@ -68,13 +68,13 @@ return (
         </div>
       ))}
       <Button 
-        title={'✅'} 
-        handleClick={() => init(item)} />
+        title={'🍲'} 
+        handleClick={() => finish(item)} />
       </section>
       : <></>
     ))}
      <Link to='/menu'><Button title="Voltar"/></Link>
-     <Link to='/delivery'><Button title="Entregas"/></Link>
+
       </section>
     
     </main>
@@ -84,4 +84,4 @@ return (
 const styles = StyleSheet.create({
 })
 
-export default Kitchen;
+export default Delivery;
