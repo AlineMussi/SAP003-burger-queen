@@ -8,6 +8,7 @@ import Input from '../components/Input';
 import MenuCard from '../components/MenuCard';
 import Request from '../components/Request';
 import List from '../components/list';
+import hamburger from './img/hamburger.svg';
 
 
 function Menu () {
@@ -129,8 +130,8 @@ const addExtraToItem = (product, extra) => {
   setItens(newItens)
 }
 
-const menuExtras = [{name: ' ovo ', icon: '🧀'}, {name: ' queijo ', icon: '🍳'}];
-const menuOption = [{name: ' veggie ', icon: '🥬'}, {name: ' frango ', icon: '🐔'}];
+const menuExtras = [{name: ' ovo ', icon: '🧀'}, {name: ' queijo ', icon: '🍳'},  {name: ' bacon ', icon: '🥓'}];
+const menuOption = [{name: ' veggie ', icon: '🥬'}, {name: ' frango ', icon: '🐔'}, {name: ' bovino ', icon: '🥩'}];
 
 const addOptionToItem = (product, option) => {
   const newOption = itens.map((item) => {
@@ -161,7 +162,7 @@ const addOptionToItem = (product, option) => {
 return(
     <>
     <header className={css(styles.header)}>
-         <Title title={'Cardárpio'}/>
+       <Title title={'Cardárpio'}/>
     </header>
 
     <main className={css(styles.main)}>

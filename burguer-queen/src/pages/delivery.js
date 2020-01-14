@@ -33,8 +33,8 @@ useEffect(() => {
       .collection('command')
       .doc(item.id)
       .update({
-        status: 'toDeliver',
-        timestamp: new Date().getTime()    
+       // status: 'finished',
+        timestamp: new Date().toLocaleString('pt-BR'),
       })
       .then(() => {
         setItens([...itens])
@@ -50,7 +50,7 @@ return (
     
     <section className={css(styles.inProgress)}>
       {itens.map((item) => (
-      (item.status === 'inProgress')?
+      (item.status === 'toDeliver')?
       
       <section>
           <p><strong>Mesa: {item.table} Realizado em: {item.timestamp}</strong></p>

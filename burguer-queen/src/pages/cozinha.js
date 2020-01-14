@@ -34,7 +34,7 @@ useEffect(() => {
       .doc(item.id)
       .update({
         status: 'toDeliver',
-        timestamp: new Date().getTime()    
+        timestamp: new Date().toLocaleString('pt-BR'),
       })
       .then(() => {
         setItens([...itens])
